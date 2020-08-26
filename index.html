@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      audio::-webkit-media-controls-timeline,
+      video::-webkit-media-controls-timeline {
+        display: none;
+      }
+      #senditVideo {
+        width: 100%;
+        height: 100%;
+      }
+      #main_video {
+        height: 100%;
+        background: black;
+        position: relative;
+      }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Send it</title>
-    <script src="https://cdn.jsdelivr.net/gh/Senditmedia/senditcdn@latest/senditPlayer2.js" defer></script>
-    <style>
-        * {
-          padding: 0;
-          margin: 0;
-          overflow-y:  hidden;
-        }
-    </style>
+    <script
+      src="https://cdn.jsdelivr.net/gh/Senditmedia/senditcdn@V1.0.8/assets/js/senditPlayer2.js"
+      defer
+    ></script>
   </head>
   <body>
-      <div style="width:100%;height:100%;object-fit:contain">
-          <video controls autoplay style="width:100%" id="senditVideo"></video>
-      </div>
-    <script src="https://cdn.jsdelivr.net/gh/Senditmedia/senditcdn@latest/senditPlayer.js" defer></script>
+    <div id="main_video">
+      <video
+        playsinline
+        controls
+        autoplay
+        style="width: 100%"
+        id="senditVideo"
+      ></video>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/gh/Senditmedia/senditcdn@V1.0.8/assets/js/senditPlayer.js"
+      defer
+    ></script>
   </body>
-</html>
 </html>
