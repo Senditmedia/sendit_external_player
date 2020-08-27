@@ -1,174 +1,173 @@
-var _0x19fc = [
-  "readyState",
-  "appendChild",
-  "open",
-  "Send\x20it:\x20Fragment\x20ERROR\x20DECTECT",
-  "debug",
-  "attachMedia",
-  "url",
-  "ErrorTypes",
-  "application/vnd.apple.mpegurl",
-  "MANIFEST_PARSED",
-  "onreadystatechange",
-  "fatal",
-  "errorVideo",
-  "Send\x20it:\x20Other\x20error,\x20we\x20trying\x20to\x20fix\x20it",
-  "log",
-  "canPlayType",
-  "Send\x20it:\x20Live\x20endpoint\x20currently\x20down",
-  "HEAD",
-  "MEDIA_ATTACHED",
-  "getElementById",
-  "recoverMediaError",
-  "offline",
-  ".m3u8",
-  "loadSource",
-  "ErrorDetails",
-  "NETWORK_ERROR",
-  "loader",
-  "body",
-  "createElement",
-  "https://error.sendit.media/hls/error.m3u8",
-  "https://cfv.sendit.media/",
-  "type",
-  "ERROR",
-  "play",
-  "value",
-  "senditVideo",
-  "bufferStalledError",
-  "hidden",
+var _0xdc19 = [
   "DefaultConfig",
-  "Send\x20it:\x20Media\x20error,\x20we\x20trying\x20to\x20fix\x20it",
-  "isSupported",
-  "Send\x20it:\x20Live\x20endpoint\x20is\x20up,\x20switching\x20to\x20it",
-  "online",
-  "Events",
-  "load",
-  "Send\x20it:\x20Network\x20error,\x20we\x20trying\x20to\x20fix\x20it",
+  "createElement",
+  "ERROR",
+  "hidden",
+  "attachMedia",
+  "abort",
   "detachMedia",
-  "loop",
+  "NETWORK_ERROR",
+  "load",
+  "fatal",
+  "getElementById",
+  "Send\x20it:\x20Media\x20error,\x20we\x20trying\x20to\x20fix\x20it",
+  "location",
+  "ErrorTypes",
+  "ErrorDetails",
+  "MEDIA_ATTACHED",
+  "key",
+  "Send\x20it:\x20Other\x20error,\x20we\x20trying\x20to\x20fix\x20it",
+  "src",
+  "Send\x20it:\x20Live\x20endpoint\x20currently\x20down",
+  "Send\x20it:\x20Fragment\x20ERROR\x20DECTECT",
+  "loadSource",
+  "play",
+  "MEDIA_ERROR",
+  "input",
+  "offline",
+  "status",
+  "errorVideo",
+  "debug",
+  "quality",
+  "undefined",
   "details",
   "FRAG_LOAD_ERROR",
-  "muted",
-  "get",
-  "src",
   "OTHER_ERROR",
-  "DONE",
-  "reloadOnError()",
-  "key",
-  "send",
+  "readyState",
+  "url",
+  "none",
+  "body",
+  "isSupported",
+  "https://cfv.sendit.media/",
+  "value",
+  "recoverMediaError",
+  "HEAD",
+  "Events",
   "search",
-  "input",
-  "location",
-  "abort",
   "destroy",
-  "status",
+  "display",
+  "send",
+  "loop",
+  "appendChild",
+  "type",
+  "online",
+  "onerror",
+  "log",
+  "Send\x20it:\x20Live\x20endpoint\x20is\x20up,\x20switching\x20to\x20it",
+  "https://error.sendit.media/hls/error.m3u8",
+  "style",
+  "open",
+  "get",
+  "onreadystatechange",
+  "application/vnd.apple.mpegurl",
+  "DONE",
 ];
-(function (_0x1651ed, _0x19fc9f) {
-  var _0x1dbc51 = function (_0x34ab9a) {
-    while (--_0x34ab9a) {
-      _0x1651ed["push"](_0x1651ed["shift"]());
+(function (_0x52cecb, _0xdc19d3) {
+  var _0x2b2899 = function (_0x103930) {
+    while (--_0x103930) {
+      _0x52cecb["push"](_0x52cecb["shift"]());
     }
   };
-  _0x1dbc51(++_0x19fc9f);
-})(_0x19fc, 0xc1);
-var _0x1dbc = function (_0x1651ed, _0x19fc9f) {
-  _0x1651ed = _0x1651ed - 0x0;
-  var _0x1dbc51 = _0x19fc[_0x1651ed];
-  return _0x1dbc51;
+  _0x2b2899(++_0xdc19d3);
+})(_0xdc19, 0x1c0);
+var _0x2b28 = function (_0x52cecb, _0xdc19d3) {
+  _0x52cecb = _0x52cecb - 0x0;
+  var _0x2b2899 = _0xdc19[_0x52cecb];
+  return _0x2b2899;
 };
-var video = document[_0x1dbc("0x12")](_0x1dbc("0x22")),
-  videoError = document[_0x1dbc("0x12")](_0x1dbc("0xb")),
+var videoError = document[_0x2b28("0x3a")](_0x2b28("0xd")),
   bufferStallErrors = 0x0,
   errorLoop = 0x0,
   somethingChanged = ![];
-const queryString = window[_0x1dbc("0x3b")][_0x1dbc("0x39")],
+const queryString = window[_0x2b28("0x3c")][_0x2b28("0x1e")],
   urlParams = new URLSearchParams(queryString),
-  key = urlParams[_0x1dbc("0x32")](_0x1dbc("0x37"));
-var videoSrc = _0x1dbc("0x1d") + key + _0x1dbc("0x15"),
-  videoErrorSrc = _0x1dbc("0x1c"),
+  key = urlParams[_0x2b28("0x2c")](_0x2b28("0x2"));
+var videoSrc = _0x2b28("0x19") + key + ".m3u8",
+  videoErrorSrc = _0x2b28("0x29"),
   liveOnline = !![],
   errorCount = 0x0,
   stalledCount = 0x0,
-  element2Monitor = document[_0x1dbc("0x1b")](_0x1dbc("0x3a"));
-(element2Monitor[_0x1dbc("0x1e")] = _0x1dbc("0x24")),
-  (element2Monitor["value"] = _0x1dbc("0x29")),
-  document[_0x1dbc("0x1a")][_0x1dbc("0x0")](element2Monitor);
-var element2MonitorStartValue = _0x1dbc("0x29"),
+  element2Monitor = document[_0x2b28("0x31")](_0x2b28("0xa"));
+(element2Monitor[_0x2b28("0x24")] = _0x2b28("0x33")),
+  (element2Monitor[_0x2b28("0x1a")] = _0x2b28("0x25")),
+  document[_0x2b28("0x17")][_0x2b28("0x23")](element2Monitor);
+var element2MonitorStartValue = _0x2b28("0x25"),
   testing = ![],
   hlsOrHtmlPlayer = null;
-if (Hls[_0x1dbc("0x27")]()) {
+if (Hls[_0x2b28("0x18")]()) {
   hlsOrHtmlPlayer = !![];
   var hls = new Hls({
     debug: ![],
     enableWorker: !![],
     startLevel: 0x3,
     autoLevelEnabled: !![],
-    pLoader: function (_0x237194) {
-      let _0x54cb7a = new Hls[_0x1dbc("0x25")][_0x1dbc("0x19")](_0x237194);
-      (this[_0x1dbc("0x3c")] = () => _0x54cb7a[_0x1dbc("0x3c")]()),
-        (this["destroy"] = () => _0x54cb7a["destroy"]()),
-        (this[_0x1dbc("0x2b")] = (_0x32ee46, _0x446b2d, _0x53b212) => {
-          let { type: _0x3ed34a, url: _0x18581 } = _0x32ee46;
-          _0x54cb7a[_0x1dbc("0x2b")](_0x32ee46, _0x446b2d, _0x53b212);
+    pLoader: function (_0x4d2af2) {
+      let _0x1d1f80 = new Hls[_0x2b28("0x30")]["loader"](_0x4d2af2);
+      (this[_0x2b28("0x35")] = () => _0x1d1f80[_0x2b28("0x35")]()),
+        (this["destroy"] = () => _0x1d1f80[_0x2b28("0x1f")]()),
+        (this[_0x2b28("0x38")] = (_0x55cf6f, _0x451ece, _0x371bdd) => {
+          let { type: _0x4c3019, url: _0x348c5d } = _0x55cf6f;
+          _0x1d1f80[_0x2b28("0x38")](_0x55cf6f, _0x451ece, _0x371bdd);
         });
     },
   });
-  hls[_0x1dbc("0x16")](videoSrc),
-    hls["attachMedia"](video),
-    hls["on"](Hls[_0x1dbc("0x2a")][_0x1dbc("0x11")], function () {
-      hls["on"](Hls[_0x1dbc("0x2a")][_0x1dbc("0x8")], function (
-        _0x3b5cf1,
-        _0xa6bea6
+  hls[_0x2b28("0x7")](videoSrc),
+    hls[_0x2b28("0x34")](video),
+    hls["on"](Hls[_0x2b28("0x1d")][_0x2b28("0x1")], function () {
+      hls["on"](Hls["Events"]["MANIFEST_PARSED"], function (
+        _0x1e71ad,
+        _0x183e1e
       ) {
-        video[_0x1dbc("0x20")]();
+        video[_0x2b28("0x8")]();
       });
     }),
-    hls["on"](Hls[_0x1dbc("0x2a")][_0x1dbc("0x1f")], function (
-      _0x2d4981,
-      _0x188bc2
+    hls["on"](Hls[_0x2b28("0x1d")][_0x2b28("0x32")], function (
+      _0x50c313,
+      _0xf3b014
     ) {
-      var _0x595ce7 = _0x188bc2[_0x1dbc("0x1e")],
-        _0x540492 = _0x188bc2[_0x1dbc("0x2f")],
-        _0x1f7f61 = _0x188bc2[_0x1dbc("0xa")];
-      switch (_0x188bc2[_0x1dbc("0x2f")]) {
-        case Hls[_0x1dbc("0x17")][_0x1dbc("0x30")]:
-          console[_0x1dbc("0x3")](_0x1dbc("0x2"));
+      var _0x1c43ce = _0xf3b014["type"],
+        _0x3ce2be = _0xf3b014[_0x2b28("0x11")],
+        _0x1f7262 = _0xf3b014[_0x2b28("0x39")];
+      switch (_0xf3b014[_0x2b28("0x11")]) {
+        case Hls[_0x2b28("0x0")][_0x2b28("0x12")]:
+          console[_0x2b28("0xe")](_0x2b28("0x6"));
           break;
         default:
           break;
       }
-      if (_0x540492 == _0x1dbc("0x23")) {
+      if (_0x3ce2be == "bufferStalledError") {
         if (errorLoop > 0x0) {
         } else errorLoop++;
       }
-      if (_0x188bc2[_0x1dbc("0xa")])
-        switch (_0x595ce7) {
-          case Hls[_0x1dbc("0x6")][_0x1dbc("0x18")]:
-            console[_0x1dbc("0xd")](_0x1dbc("0x2c"));
-            hls[_0x1dbc("0x5")] == videoSrc &&
-              (hls[_0x1dbc("0x2d")](),
-              hls[_0x1dbc("0x16")](videoErrorSrc),
-              hls["attachMedia"](video),
-              video[_0x1dbc("0x20")](),
-              (video[_0x1dbc("0x2e")] = !![]),
-              (element2Monitor[_0x1dbc("0x21")] = _0x1dbc("0x14")));
+      if (_0xf3b014[_0x2b28("0x39")])
+        switch (_0x1c43ce) {
+          case Hls[_0x2b28("0x3d")][_0x2b28("0x37")]:
+            console[_0x2b28("0x27")](
+              "Send\x20it:\x20Network\x20error,\x20we\x20trying\x20to\x20fix\x20it"
+            );
+            hls[_0x2b28("0x15")] == videoSrc &&
+              (hls[_0x2b28("0x36")](),
+              hls[_0x2b28("0x7")](videoErrorSrc),
+              hls[_0x2b28("0x34")](video),
+              video["play"](),
+              (video[_0x2b28("0x22")] = !![]),
+              (element2Monitor[_0x2b28("0x1a")] = _0x2b28("0xb")));
             errorLoop = 0x0;
             break;
-          case Hls["ErrorTypes"]["MEDIA_ERROR"]:
-            console[_0x1dbc("0xd")](_0x1dbc("0x26")), hls[_0x1dbc("0x13")]();
+          case Hls[_0x2b28("0x3d")][_0x2b28("0x9")]:
+            console[_0x2b28("0x27")](_0x2b28("0x3b")), hls[_0x2b28("0x1b")]();
             break;
-          case Hls[_0x1dbc("0x6")][_0x1dbc("0x34")]:
-            console[_0x1dbc("0xd")](_0x1dbc("0xc")), hls[_0x1dbc("0x13")]();
+          case Hls[_0x2b28("0x3d")][_0x2b28("0x13")]:
+            console["log"](_0x2b28("0x3")), hls[_0x2b28("0x1b")]();
             break;
           default:
-            hls[_0x1dbc("0x3d")]();
+            hls[_0x2b28("0x1f")]();
             break;
         }
     });
   function track_change() {
-    element2Monitor[_0x1dbc("0x21")] != element2MonitorStartValue &&
-      ((element2MonitorStartValue = element2Monitor[_0x1dbc("0x21")]),
+    element2Monitor[_0x2b28("0x1a")] != element2MonitorStartValue &&
+      ((element2MonitorStartValue = element2Monitor[_0x2b28("0x1a")]),
       (somethingChanged = !![]),
       onlineMonitor());
   }
@@ -177,77 +176,74 @@ if (Hls[_0x1dbc("0x27")]()) {
   }, 0x64),
     onlineMonitor();
 } else {
-  if (video[_0x1dbc("0xe")](_0x1dbc("0x7"))) {
+  if (video["canPlayType"](_0x2b28("0x2e"))) {
     (hlsOrHtmlPlayer = ![]),
-      (video[_0x1dbc("0x33")] = videoSrc),
-      video["setAttribute"]("onerror", _0x1dbc("0x36"));
+      (video["src"] = videoSrc),
+      video["setAttribute"](_0x2b28("0x26"), "reloadOnError()");
     function reloadOnError() {
       errorCount == 0x0 &&
-        ((video["src"] = videoErrorSrc),
-        (video[_0x1dbc("0x31")] = !![]),
-        (video["loop"] = !![]),
-        video[_0x1dbc("0x2b")](),
-        video[_0x1dbc("0x20")](),
+        ((video[_0x2b28("0x4")] = videoErrorSrc),
+        (video["muted"] = !![]),
+        (video[_0x2b28("0x22")] = !![]),
+        video[_0x2b28("0x38")](),
+        video[_0x2b28("0x8")](),
         errorCount == 0x1);
     }
   }
 }
 function onlineMonitor() {
-  if (hls[_0x1dbc("0x5")] == videoErrorSrc) {
-    var _0x31041d = new XMLHttpRequest();
-    _0x31041d[_0x1dbc("0x1")](_0x1dbc("0x10"), videoSrc),
-      (_0x31041d[_0x1dbc("0x9")] = function () {
-        if (this[_0x1dbc("0x3f")] == this[_0x1dbc("0x35")]) {
-          if (
-            this[_0x1dbc("0x3e")] == 0x194 &&
-            hls[_0x1dbc("0x5")] == videoErrorSrc
-          )
-            console[_0x1dbc("0xd")](_0x1dbc("0xf"), videoSrc);
+  if (hls[_0x2b28("0x15")] == videoErrorSrc) {
+    var _0xa42640 = new XMLHttpRequest();
+    _0xa42640[_0x2b28("0x2b")](_0x2b28("0x1c"), videoSrc),
+      (_0xa42640[_0x2b28("0x2d")] = function () {
+        if (this[_0x2b28("0x14")] == this["DONE"]) {
+          if (this["status"] == 0x194 && hls[_0x2b28("0x15")] == videoErrorSrc)
+            console[_0x2b28("0x27")](_0x2b28("0x5"), videoSrc);
           else
-            this[_0x1dbc("0x3e")] == 0xc8 &&
-              hls[_0x1dbc("0x5")] == videoErrorSrc &&
-              (console[_0x1dbc("0xd")](_0x1dbc("0x28")),
-              (element2Monitor[_0x1dbc("0x21")] = _0x1dbc("0x29")),
+            this[_0x2b28("0xc")] == 0xc8 &&
+              hls[_0x2b28("0x15")] == videoErrorSrc &&
+              (console[_0x2b28("0x27")](
+                "Send\x20it:\x20Live\x20endpoint\x20is\x20up,\x20switching\x20to\x20it"
+              ),
+              (element2Monitor["value"] = "online"),
               (somethingChanged = ![]),
-              (video[_0x1dbc("0x2e")] = ![]),
-              hls["detachMedia"](),
-              hls[_0x1dbc("0x16")](videoSrc),
-              hls[_0x1dbc("0x4")](video),
-              video[_0x1dbc("0x20")]());
+              (video[_0x2b28("0x22")] = ![]),
+              hls[_0x2b28("0x36")](),
+              hls[_0x2b28("0x7")](videoSrc),
+              hls[_0x2b28("0x34")](video),
+              video[_0x2b28("0x8")]());
         }
       }),
-      _0x31041d[_0x1dbc("0x38")](),
+      _0xa42640[_0x2b28("0x21")](),
       setTimeout(onlineMonitor, 0x7d0);
   }
 }
 onlineMonitorHLSNative();
 function onlineMonitorHLSNative() {
-  var _0x46b296 = new XMLHttpRequest();
-  _0x46b296[_0x1dbc("0x1")]("HEAD", videoSrc),
-    (_0x46b296["onreadystatechange"] = function () {
-      if (this[_0x1dbc("0x3f")] == this[_0x1dbc("0x35")]) {
-        if (
-          this[_0x1dbc("0x3e")] == 0x194 &&
-          video[_0x1dbc("0x33")] == videoSrc
-        )
-          console[_0x1dbc("0xd")](
-            "Send\x20it:\x20Live\x20endpoint\x20currently\x20down",
-            videoSrc
-          ),
-            (video[_0x1dbc("0x2e")] = !![]),
+  var _0x45922f = new XMLHttpRequest();
+  _0x45922f[_0x2b28("0x2b")](_0x2b28("0x1c"), videoSrc),
+    (_0x45922f[_0x2b28("0x2d")] = function () {
+      if (this["readyState"] == this[_0x2b28("0x2f")]) {
+        if (this[_0x2b28("0xc")] == 0x194 && video[_0x2b28("0x4")] == videoSrc)
+          console[_0x2b28("0x27")](_0x2b28("0x5"), videoSrc),
+            (video[_0x2b28("0x22")] = !![]),
             (video["src"] = videoErrorSrc),
-            video[_0x1dbc("0x2b")](),
-            video[_0x1dbc("0x20")]();
+            video[_0x2b28("0x38")](),
+            video[_0x2b28("0x8")]();
         else
-          this[_0x1dbc("0x3e")] == 0xc8 &&
-            video[_0x1dbc("0x33")] == videoErrorSrc &&
-            (console[_0x1dbc("0xd")](_0x1dbc("0x28")),
-            (video[_0x1dbc("0x2e")] = ![]),
+          this[_0x2b28("0xc")] == 0xc8 &&
+            video[_0x2b28("0x4")] == videoErrorSrc &&
+            (console[_0x2b28("0x27")](_0x2b28("0x28")),
+            (video[_0x2b28("0x22")] = ![]),
             (video["src"] = videoSrc),
-            video[_0x1dbc("0x2b")](),
-            video[_0x1dbc("0x20")]());
+            video[_0x2b28("0x38")](),
+            video[_0x2b28("0x8")]());
       }
     }),
-    _0x46b296[_0x1dbc("0x38")](),
+    _0x45922f[_0x2b28("0x21")](),
     setTimeout(onlineMonitorHLSNative, 0x1f40);
 }
+typeof hls === _0x2b28("0x10") &&
+  (document[_0x2b28("0x3a")](_0x2b28("0xf"))[_0x2b28("0x2a")][
+    _0x2b28("0x20")
+  ] = _0x2b28("0x16"));
