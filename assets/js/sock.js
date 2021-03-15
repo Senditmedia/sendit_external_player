@@ -1,168 +1,177 @@
-const _0x4b97 = [
-  "13xQvICi",
+const _0x4d30 = [
+  "[socket\x20error]",
   "getDate",
-  "end_date",
-  "3322729BaVoFW",
-  "search",
-  "[socket\x20close]\x20connection\x20died",
-  "724923yxPhRs",
-  "onMessage",
-  "send",
-  "location",
-  "onopen",
-  "sendMessage",
-  "log",
-  "stringify",
-  "events",
-  "socket",
-  "[socket\x20close]\x20closed\x20cleanly",
-  "482ZYheMa",
-  "setDate",
-  "action",
-  "1eqIVqI",
-  "onerror",
-  "wss://chatsockdr.sendit.media/dev",
-  "onunload",
-  "3761lamkVe",
-  "listeners",
-  "wasClean",
-  "368015lnQqVe",
-  "33094YxQybp",
-  "ERROR",
-  "close",
-  "616160bzYPne",
-  "hostname",
-  "wss://chatsockpr.sendit.media/production",
-  "url",
-  "wss://jrn1gpil42.execute-api.af-south-1.amazonaws.com/production",
-  "1732539WfnMiY",
-  "onclose",
+  "[socket\x20closing]",
   "data",
-  "init",
-  "joinStream",
-  "get",
+  "2FrSqof",
+  "751FlEYiT",
+  "send",
   "onmessage",
+  "onopen",
+  "934514TgPiMr",
+  "get",
+  "23284xixjSI",
+  "listeners",
+  "action",
+  "events",
+  "sendMessage",
+  "push",
+  "1rYAUlG",
+  "onerror",
+  "false",
   "stream",
+  "[socket\x20close]\x20closed\x20cleanly",
+  "153233EQFuRz",
+  "hostname",
+  "[socket\x20close]\x20connection\x20died",
+  "onunload",
+  "wss://chatsockdr.sendit.media/dev",
+  "1558475dXrIyd",
+  "url",
+  "ERROR",
+  "onload",
+  "968063FiePuH",
+  "onclose",
+  "location",
+  "28cEouvh",
+  "CONNECT_SAVE",
+  "socket",
+  "search",
+  "wss://jrn1gpil42.execute-api.af-south-1.amazonaws.com/production",
+  "1213qbEXSh",
+  "externaldr.sendit.media",
+  "key",
+  "close",
+  "491ntBuee",
+  "init",
+  "parse",
+  "true",
+  "error",
+  "417IYnskp",
+  "slug",
+  "log",
+  "wss://chatsockpr.sendit.media/production",
+  "end_date",
 ];
-const _0x21e4 = function (_0x2c0f10, _0x4a6a90) {
-  _0x2c0f10 = _0x2c0f10 - 0x199;
-  let _0x4b9730 = _0x4b97[_0x2c0f10];
-  return _0x4b9730;
+const _0x5090 = function (_0x2e35dd, _0x11548a) {
+  _0x2e35dd = _0x2e35dd - 0x103;
+  let _0x4d307f = _0x4d30[_0x2e35dd];
+  return _0x4d307f;
 };
-const _0xb0c058 = _0x21e4;
-(function (_0x5a68c4, _0x4791c1) {
-  const _0x4ea8d1 = _0x21e4;
+const _0x231168 = _0x5090;
+(function (_0x380004, _0x3a5e31) {
+  const _0xca01ac = _0x5090;
   while (!![]) {
     try {
-      const _0x15aabb =
-        parseInt(_0x4ea8d1(0x1be)) * parseInt(_0x4ea8d1(0x1b7)) +
-        parseInt(_0x4ea8d1(0x199)) +
-        parseInt(_0x4ea8d1(0x1c1)) +
-        parseInt(_0x4ea8d1(0x1ac)) * -parseInt(_0x4ea8d1(0x1ba)) +
-        parseInt(_0x4ea8d1(0x19e)) +
-        parseInt(_0x4ea8d1(0x1a6)) * parseInt(_0x4ea8d1(0x1c2)) +
-        -parseInt(_0x4ea8d1(0x1a9));
-      if (_0x15aabb === _0x4791c1) break;
-      else _0x5a68c4["push"](_0x5a68c4["shift"]());
-    } catch (_0x3d595c) {
-      _0x5a68c4["push"](_0x5a68c4["shift"]());
+      const _0x4d0922 =
+        parseInt(_0xca01ac(0x134)) +
+        -parseInt(_0xca01ac(0x107)) * -parseInt(_0xca01ac(0x115)) +
+        -parseInt(_0xca01ac(0x118)) * -parseInt(_0xca01ac(0x136)) +
+        parseInt(_0xca01ac(0x10c)) * parseInt(_0xca01ac(0x12f)) +
+        -parseInt(_0xca01ac(0x130)) * parseInt(_0xca01ac(0x11d)) +
+        parseInt(_0xca01ac(0x126)) * parseInt(_0xca01ac(0x121)) +
+        -parseInt(_0xca01ac(0x111));
+      if (_0x4d0922 === _0x3a5e31) break;
+      else _0x380004["push"](_0x380004["shift"]());
+    } catch (_0x21e8a2) {
+      _0x380004["push"](_0x380004["shift"]());
     }
   }
-})(_0x4b97, 0xdead6);
-const queryString1 = window[_0xb0c058(0x1af)][_0xb0c058(0x1aa)],
+})(_0x4d30, 0x91950);
+const queryString1 = window[_0x231168(0x117)][_0x231168(0x11b)],
   urlParams1 = new URLSearchParams(queryString1),
-  slugIn = urlParams1[_0xb0c058(0x1a3)]("key");
+  slugIn = urlParams1["get"](_0x231168(0x11f)),
+  socketEnable =
+    urlParams1[_0x231168(0x135)](_0x231168(0x11a)) || _0x231168(0x124);
 let socket = null;
 class Socket {
-  constructor(_0x319176, _0x2151c4) {
-    const _0xac992d = _0xb0c058;
-    if (
-      window[_0xac992d(0x1af)][_0xac992d(0x19a)] === "externaldr.sendit.media"
-    )
-      this["url"] = _0xac992d(0x1bc);
+  constructor(_0xc9e078, _0x563012) {
+    const _0x52e368 = _0x231168;
+    if (window[_0x52e368(0x117)][_0x52e368(0x10d)] === _0x52e368(0x11e))
+      this[_0x52e368(0x112)] = _0x52e368(0x110);
     else
-      window[_0xac992d(0x1af)][_0xac992d(0x19a)] === "externalpr.sendit.media"
-        ? (this[_0xac992d(0x19c)] = _0xac992d(0x19b))
-        : (this[_0xac992d(0x19c)] = _0xac992d(0x19d));
-    (this[_0xac992d(0x1b5)] = null),
-      (this["stream"] = { slug: _0x319176, end_date: _0x2151c4 }),
-      (this["events"] = {}),
-      (this[_0xac992d(0x1bf)] = {});
+      window[_0x52e368(0x117)][_0x52e368(0x10d)] === "externalpr.sendit.media"
+        ? (this["url"] = _0x52e368(0x129))
+        : (this[_0x52e368(0x112)] = _0x52e368(0x11c));
+    (this[_0x52e368(0x11a)] = null),
+      (this[_0x52e368(0x10a)] = { slug: _0xc9e078, end_date: _0x563012 }),
+      (this[_0x52e368(0x104)] = {}),
+      (this[_0x52e368(0x137)] = {});
   }
-  static async [_0xb0c058(0x1a1)](_0x4ae907) {
-    const _0x230b12 = _0xb0c058;
-    let _0x20a3bc = new Date();
+  static async ["init"](_0x56a1d9) {
+    const _0x2f9df4 = _0x231168;
+    let _0x3fea40 = new Date();
     return (
-      _0x20a3bc[_0x230b12(0x1b8)](_0x20a3bc[_0x230b12(0x1a7)]() + 0x2),
-      new Socket(_0x4ae907, _0x20a3bc)
+      _0x3fea40["setDate"](_0x3fea40[_0x2f9df4(0x12c)]() + 0x2),
+      new Socket(_0x56a1d9, _0x3fea40)
     );
   }
-  [_0xb0c058(0x1ad)]() {
-    const _0x531007 = _0xb0c058;
-    (this["socket"][_0x531007(0x1a4)] = (_0x511afe) => {
-      const _0x55be55 = _0x531007,
-        _0x3d08e7 = JSON["parse"](_0x511afe[_0x55be55(0x1a0)] || "{}");
-      (this[_0x55be55(0x1b4)][
-        _0x3d08e7[_0x55be55(0x1b9)]
-      ] = new CustomEvent(_0x3d08e7[_0x55be55(0x1b9)], { detail: _0x3d08e7 })),
-        dispatchEvent(this["events"][_0x3d08e7[_0x55be55(0x1b9)]]);
+  ["onMessage"]() {
+    const _0x2e85ce = _0x231168;
+    (this[_0x2e85ce(0x11a)][_0x2e85ce(0x132)] = (_0x376e0a) => {
+      const _0xc2d974 = _0x2e85ce,
+        _0x592650 = JSON[_0xc2d974(0x123)](_0x376e0a[_0xc2d974(0x12e)] || "{}");
+      (this[_0xc2d974(0x104)][_0x592650["action"]] = new CustomEvent(
+        _0x592650["action"],
+        { detail: _0x592650 }
+      )),
+        dispatchEvent(this[_0xc2d974(0x104)][_0x592650[_0xc2d974(0x103)]]);
     }),
-      (this[_0x531007(0x1b5)][_0x531007(0x1bb)] = (_0x3da104) => {
-        const _0x50a422 = _0x531007;
-        dispatchEvent(new CustomEvent(_0x50a422(0x1c3), { detail: _0x3da104 }));
+      (this[_0x2e85ce(0x11a)][_0x2e85ce(0x108)] = (_0x2bb784) => {
+        dispatchEvent(new CustomEvent("ERROR", { detail: _0x2bb784 }));
       }),
-      (this["socket"][_0x531007(0x19f)] = (_0x20a963) => {
-        const _0x5b4f19 = _0x531007;
-        _0x20a963[_0x5b4f19(0x1c0)]
-          ? console["log"](_0x5b4f19(0x1b6))
-          : console["log"](_0x5b4f19(0x1ab));
+      (this["socket"][_0x2e85ce(0x116)] = (_0x3ec651) => {
+        const _0x2f7a64 = _0x2e85ce;
+        _0x3ec651["wasClean"]
+          ? console[_0x2f7a64(0x128)](_0x2f7a64(0x10b))
+          : console[_0x2f7a64(0x128)](_0x2f7a64(0x10e));
       });
   }
   ["joinStream"]() {
-    const _0x907075 = _0xb0c058;
-    console[_0x907075(0x1b2)](_0x907075(0x1a2)),
-      (this["socket"] = new WebSocket(this[_0x907075(0x19c)])),
-      (this[_0x907075(0x1b5)][_0x907075(0x1b0)] = () => {
-        const _0x50ff22 = _0x907075;
-        this[_0x50ff22(0x1ad)]();
-        const _0xb8fc7f = {
-          action: "CONNECT_SAVE",
-          slug: this[_0x50ff22(0x1a5)]["slug"],
-          endDate: this[_0x50ff22(0x1a5)][_0x50ff22(0x1a8)],
+    const _0x7c591d = _0x231168;
+    (this[_0x7c591d(0x11a)] = new WebSocket(this["url"])),
+      (this[_0x7c591d(0x11a)][_0x7c591d(0x133)] = () => {
+        const _0x8fae3b = _0x7c591d;
+        this["onMessage"]();
+        const _0x202b41 = {
+          action: _0x8fae3b(0x119),
+          slug: this[_0x8fae3b(0x10a)][_0x8fae3b(0x127)],
+          endDate: this[_0x8fae3b(0x10a)][_0x8fae3b(0x12a)],
           publisher: ![],
         };
-        this[_0x50ff22(0x1b1)](_0xb8fc7f);
+        this[_0x8fae3b(0x105)](_0x202b41);
       });
   }
-  ["on"](_0x1e1c4c, _0x1b8bbb) {
-    const _0x35af31 = _0xb0c058;
-    addEventListener(_0x1e1c4c, _0x1b8bbb),
-      this[_0x35af31(0x1bf)][_0x1e1c4c]
-        ? this[_0x35af31(0x1bf)][_0x1e1c4c]["push"](_0x1b8bbb)
-        : (this[_0x35af31(0x1bf)][_0x1e1c4c] = [_0x1b8bbb]);
+  ["on"](_0x1293d5, _0x22ab6b) {
+    const _0x5c37e7 = _0x231168;
+    addEventListener(_0x1293d5, _0x22ab6b),
+      this[_0x5c37e7(0x137)][_0x1293d5]
+        ? this[_0x5c37e7(0x137)][_0x1293d5][_0x5c37e7(0x106)](_0x22ab6b)
+        : (this[_0x5c37e7(0x137)][_0x1293d5] = [_0x22ab6b]);
   }
-  [_0xb0c058(0x1b1)](_0x457a15) {
-    const _0x2f4d9e = _0xb0c058;
-    this[_0x2f4d9e(0x1b5)][_0x2f4d9e(0x1ae)](JSON[_0x2f4d9e(0x1b3)](_0x457a15));
+  [_0x231168(0x105)](_0x4ef975) {
+    const _0x3eee52 = _0x231168;
+    this[_0x3eee52(0x11a)][_0x3eee52(0x131)](JSON["stringify"](_0x4ef975));
   }
-  ["close"]() {
-    const _0x4e19d9 = _0xb0c058;
-    console["log"]("[socket\x20closing]"),
-      this[_0x4e19d9(0x1b5)][_0x4e19d9(0x1c4)]();
-    for (const _0x3535fd in this[_0x4e19d9(0x1bf)])
-      for (const _0x4a4b89 of this[_0x4e19d9(0x1bf)][_0x3535fd])
-        removeEventListener(_0x3535fd, _0x4a4b89);
+  [_0x231168(0x120)]() {
+    const _0x5c5193 = _0x231168;
+    console["log"](_0x5c5193(0x12d)), this[_0x5c5193(0x11a)]["close"]();
+    for (const _0x3acb9a in this[_0x5c5193(0x137)])
+      for (const _0x3948bf of this[_0x5c5193(0x137)][_0x3acb9a])
+        removeEventListener(_0x3acb9a, _0x3948bf);
   }
 }
-(window["onload"] = async () => {
-  const _0x422fe3 = _0xb0c058;
-  (socket = await Socket[_0x422fe3(0x1a1)](slugIn)),
-    socket["on"](_0x422fe3(0x1c3), ({ detail: _0x1d1186 }) => {
-      console["error"]("[socket\x20error]", _0x1d1186);
-    }),
-    socket[_0x422fe3(0x1a2)]();
+(window[_0x231168(0x114)] = async () => {
+  const _0x5cef39 = _0x231168;
+  if (socketEnable === _0x5cef39(0x109)) return;
+  else
+    (socket = await Socket[_0x5cef39(0x122)](slugIn)),
+      socket["on"](_0x5cef39(0x113), ({ detail: _0x5ec329 }) => {
+        const _0x4d0fab = _0x5cef39;
+        console[_0x4d0fab(0x125)](_0x4d0fab(0x12b), _0x5ec329);
+      }),
+      socket["joinStream"]();
 }),
-  (window[_0xb0c058(0x1bd)] = () => {
-    const _0x482d86 = _0xb0c058;
-    socket[_0x482d86(0x1c4)]();
+  (window[_0x231168(0x10f)] = () => {
+    socket["close"]();
   });
