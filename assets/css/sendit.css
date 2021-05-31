@@ -17,3 +17,13 @@ video::-webkit-media-controls-timeline {
   background: black;
   position: relative;
 }
+
+
+#video-controls {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+#video-controls.hidden-controls {
+  opacity: 0;
+  pointer-events: none;
+}
