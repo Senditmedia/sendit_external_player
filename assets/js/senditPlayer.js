@@ -57,7 +57,7 @@ var _0x1343 = [
   "loadSource",
   "url",
   "recoverMediaError",
-  "https://cfv.sendit.media/",
+  "https://cfv.sendit.media/hls/",
   "undefined",
   "destroy",
   "status",
