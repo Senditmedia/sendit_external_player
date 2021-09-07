@@ -9,7 +9,7 @@ const urlParams = new URLSearchParams(queryString);
 const key = urlParams.get("key");
 const vod = urlParams.get("vod");
 if (vod == "" || vod == null) {
-  var videoSrc = "https://cfv.sendit.media/" + key + ".m3u8";
+  var videoSrc = "https://cfv.sendit.media/hls/" + key + ".m3u8";
   var videoErrorSrc = "https://error.sendit.media/hls/error.m3u8";
 } else {
   var videoSrc = "https://external.sendit.media/vod/" + key + "/playlist.m3u8";
