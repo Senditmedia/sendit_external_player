@@ -1,311 +1,228 @@
-var _0x1343 = [
-  "mousemove",
-  "attachMedia",
-  "add",
-  "MEDIA_ERROR",
-  "get",
-  "loop",
-  "classList",
-  "src",
-  "load",
-  "offline",
-  "addEventListener",
-  "detachMedia",
-  "online",
-  "location",
-  "911513XILwYY",
-  "fatal",
-  "onerror",
-  "/playlist.m3u8",
-  "DONE",
-  "onreadystatechange",
-  "1iAkSUO",
-  "log",
-  "reloadOnError()",
-  "1165615TKTivc",
-  "details",
-  "none",
-  "play",
-  "video-controls",
-  "MEDIA_ATTACHED",
-  "hidden",
-  "https://external.sendit.media/vod/",
-  "search",
-  "type",
-  "661625GYJWpm",
-  "ErrorDetails",
-  "muted",
-  "bufferStalledError",
-  "44201ndatUz",
-  "HEAD",
-  "appendChild",
-  "Mouse\x20idle\x20for\x203\x20sec",
-  "OTHER_ERROR",
-  "Events",
-  "ErrorTypes",
-  "Send\x20it:\x20Fragment\x20ERROR\x20DECTECT",
-  "loader",
-  "2929tMPGxU",
-  "74738jIVGZw",
-  "https://error.sendit.media/hls/error.m3u8",
-  "readyState",
-  "value",
-  "549iJuboT",
-  "ERROR",
-  "abort",
-  "contains",
-  "loadSource",
-  "url",
-  "recoverMediaError",
-  "https://cfv.sendit.media/hls/",
-  "undefined",
-  "destroy",
-  "status",
-  "Send\x20it:\x20Live\x20endpoint\x20currently\x20down",
-  "body",
-  "isSupported",
-  "debug",
-  "Send\x20it:\x20Live\x20endpoint\x20is\x20up,\x20switching\x20to\x20it",
-  "898821yZibIw",
-  "application/vnd.apple.mpegurl",
-  "open",
-  "1eZfyDn",
-  "NETWORK_ERROR",
-  "input",
-  "Send\x20it:\x20Network\x20error,\x20we\x20trying\x20to\x20fix\x20it",
-  "hidden-controls",
-  "1BMJPPO",
-  "FRAG_LOAD_ERROR",
-  "setAttribute",
-  "getElementById",
-  "display",
-];
-var _0x48dc48 = _0x5c89;
-(function (_0x1bfe0f, _0x4256a1) {
-  var _0x4b4e40 = _0x5c89;
-  while (!![]) {
-    try {
-      var _0x229714 =
-        parseInt(_0x4b4e40(0xf1)) * parseInt(_0x4b4e40(0xf4)) +
-        -parseInt(_0x4b4e40(0xfe)) +
-        parseInt(_0x4b4e40(0x10c)) +
-        parseInt(_0x4b4e40(0x110)) * -parseInt(_0x4b4e40(0x10b)) +
-        -parseInt(_0x4b4e40(0xeb)) * -parseInt(_0x4b4e40(0x128)) +
-        parseInt(_0x4b4e40(0x102)) * parseInt(_0x4b4e40(0x123)) +
-        parseInt(_0x4b4e40(0x120));
-      if (_0x229714 === _0x4256a1) break;
-      else _0x1bfe0f["push"](_0x1bfe0f["shift"]());
-    } catch (_0x27e22f) {
-      _0x1bfe0f["push"](_0x1bfe0f["shift"]());
-    }
-  }
-})(_0x1343, 0xc979a);
-var videoError = document["getElementById"]("errorVideo"),
-  bufferStallErrors = 0x0,
-  errorLoop = 0x0,
-  somethingChanged = ![];
-const queryString = window[_0x48dc48(0xea)][_0x48dc48(0xfc)],
-  urlParams = new URLSearchParams(queryString),
-  key = urlParams[_0x48dc48(0x131)]("key"),
-  vod = urlParams[_0x48dc48(0x131)]("vod");
-if (vod == "" || vod == null)
-  var videoSrc = _0x48dc48(0x117) + key + ".m3u8",
-    videoErrorSrc = _0x48dc48(0x10d);
-else
-  var videoSrc = _0x48dc48(0xfb) + key + _0x48dc48(0xee),
-    videoErrorSrc = "https://error.sendit.media/hls/error.m3u8";
-var liveOnline = !![],
-  errorCount = 0x0,
-  stalledCount = 0x0,
-  element2Monitor = document["createElement"](_0x48dc48(0x125));
-(element2Monitor[_0x48dc48(0xfd)] = _0x48dc48(0xfa)),
-  (element2Monitor["value"] = _0x48dc48(0xe9)),
-  document[_0x48dc48(0x11c)][_0x48dc48(0x104)](element2Monitor);
-var element2MonitorStartValue = "online",
-  testing = ![],
-  hlsOrHtmlPlayer = null;
-if (Hls[_0x48dc48(0x11d)]()) {
-  hlsOrHtmlPlayer = !![];
+// var video = document.getElementById("senditVideo");
+var videoError = document.getElementById("errorVideo");
+var bufferStallErrors = 0;
+var errorLoop = 0;
+var somethingChanged = false;
+//Set the video source
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const key = urlParams.get("key");
+const vod = urlParams.get("vod");
+if (vod == "" || vod == null) {
+  var videoSrc = "https://cfv.sendit.media/hls/" + key + ".m3u8";
+  var videoErrorSrc = "https://error.sendit.media/hls/error.m3u8";
+} else {
+  var videoSrc = "https://external.sendit.media/vod/" + key + "/playlist.m3u8";
+  var videoErrorSrc = "https://error.sendit.media/hls/error.m3u8";
+}
+
+var liveOnline = true;
+var errorCount = 0;
+var stalledCount = 0;
+
+//Create DOM element for monitoring liveOnline
+var element2Monitor = document.createElement("input");
+element2Monitor.type = "hidden";
+element2Monitor.value = "online";
+document.body.appendChild(element2Monitor);
+var element2MonitorStartValue = "online";
+var testing = false;
+var hlsOrHtmlPlayer = null;
+
+// if (testing) {
+if (Hls.isSupported()) {
+  hlsOrHtmlPlayer = true;
+  //   Lets use the HLS.js library, otherwise fallback to plain HTML Video player
   var hls = new Hls({
-    debug: ![],
-    enableWorker: !![],
-    startLevel: 0x3,
-    autoLevelEnabled: !![],
-    pLoader: function (_0xf72dbc) {
-      var _0x2ae186 = _0x48dc48;
-      let _0x325186 = new Hls["DefaultConfig"][_0x2ae186(0x10a)](_0xf72dbc);
-      (this["abort"] = () => _0x325186[_0x2ae186(0x112)]()),
-        (this[_0x2ae186(0x119)] = () => _0x325186["destroy"]()),
-        (this[_0x2ae186(0xe5)] = (_0x416c19, _0x3152a8, _0x145849) => {
-          var _0x1541a2 = _0x2ae186;
-          let { type: _0xc6bd34, url: _0x5d60df } = _0x416c19;
-          _0x325186[_0x1541a2(0xe5)](_0x416c19, _0x3152a8, _0x145849);
-        });
+    debug: false,
+    enableWorker: true,
+    startLevel: 3,
+    autoLevelEnabled: true,
+    // initialLiveManifestSize: 3,
+    // liveBackBufferLength: 900,
+
+    pLoader: function (config) {
+      let loader = new Hls.DefaultConfig.loader(config);
+      this.abort = () => loader.abort();
+      this.destroy = () => loader.destroy();
+      this.load = (context, config, callbacks) => {
+        let { type, url } = context;
+        loader.load(context, config, callbacks);
+      };
     },
   });
-  hls[_0x48dc48(0x114)](videoSrc),
-    hls[_0x48dc48(0x12e)](video),
-    hls["on"](Hls[_0x48dc48(0x107)][_0x48dc48(0xf9)], function () {
-      var _0x329053 = _0x48dc48;
-      hls["on"](
-        Hls[_0x329053(0x107)]["MANIFEST_PARSED"],
-        function (_0x3fa464, _0x43cc9d) {
-          var _0x46b757 = _0x329053;
-          video[_0x46b757(0xf7)]();
-        }
-      );
-    }),
-    hls["on"](Hls["Events"][_0x48dc48(0x111)], function (_0x59f95a, _0x147705) {
-      var _0x287eac = _0x48dc48,
-        _0x3a9d26 = _0x147705["type"],
-        _0x6dde49 = _0x147705[_0x287eac(0xf5)],
-        _0x2538dc = _0x147705[_0x287eac(0xec)];
-      switch (_0x147705[_0x287eac(0xf5)]) {
-        case Hls[_0x287eac(0xff)][_0x287eac(0x129)]:
-          console[_0x287eac(0x11e)](_0x287eac(0x109));
+  hls.loadSource(videoSrc);
+  hls.attachMedia(video);
+  hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+    hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+      video.play();
+    });
+  });
+
+  //Handle errors
+  hls.on(Hls.Events.ERROR, function (event, data) {
+    var errorType = data.type;
+    var errorDetails = data.details;
+    var errorFatal = data.fatal;
+
+    switch (data.details) {
+      case Hls.ErrorDetails.FRAG_LOAD_ERROR:
+        console.debug("Send it: Fragment ERROR DECTECT");
+        break;
+      default:
+        break;
+    }
+
+    // console.log("Outside bufferStallErrors", bufferStallErrors);
+    if (errorDetails == "bufferStalledError") {
+      //   console.log("Inside bufferStallErrors", bufferStallErrors);
+      // console.log("Inside errorLoop", errorLoop);
+      if (errorLoop > 0) {
+        // console.log("RESET TIME");
+      } else {
+        // console.log("Buffer error but first one in a row");
+        errorLoop++;
+      }
+    }
+
+    if (data.fatal) {
+      switch (errorType) {
+        case Hls.ErrorTypes.NETWORK_ERROR:
+          // try to recover network error
+          console.log("Send it: Network error, we trying to fix it");
+          if (hls.url == videoSrc) {
+            hls.detachMedia();
+            hls.loadSource(videoErrorSrc);
+            hls.attachMedia(video);
+            video.play();
+            video.loop = true;
+            element2Monitor.value = "offline";
+          }
+          errorLoop = 0;
+          break;
+        case Hls.ErrorTypes.MEDIA_ERROR:
+          console.log("Send it: Media error, we trying to fix it");
+          hls.recoverMediaError();
+          break;
+        case Hls.ErrorTypes.OTHER_ERROR:
+          console.log("Send it: Other error, we trying to fix it");
+          hls.recoverMediaError();
           break;
         default:
+          // cannot recover
+          hls.destroy();
           break;
       }
-      if (_0x6dde49 == _0x287eac(0x101)) {
-        if (errorLoop > 0x0) {
-        } else errorLoop++;
-      }
-      if (_0x147705[_0x287eac(0xec)])
-        switch (_0x3a9d26) {
-          case Hls[_0x287eac(0x108)][_0x287eac(0x124)]:
-            console[_0x287eac(0xf2)](_0x287eac(0x126));
-            hls["url"] == videoSrc &&
-              (hls[_0x287eac(0xe8)](),
-              hls["loadSource"](videoErrorSrc),
-              hls[_0x287eac(0x12e)](video),
-              video[_0x287eac(0xf7)](),
-              (video[_0x287eac(0x132)] = !![]),
-              (element2Monitor[_0x287eac(0x10f)] = _0x287eac(0xe6)));
-            errorLoop = 0x0;
-            break;
-          case Hls[_0x287eac(0x108)][_0x287eac(0x130)]:
-            console[_0x287eac(0xf2)](
-              "Send\x20it:\x20Media\x20error,\x20we\x20trying\x20to\x20fix\x20it"
-            ),
-              hls[_0x287eac(0x116)]();
-            break;
-          case Hls[_0x287eac(0x108)][_0x287eac(0x106)]:
-            console[_0x287eac(0xf2)](
-              "Send\x20it:\x20Other\x20error,\x20we\x20trying\x20to\x20fix\x20it"
-            ),
-              hls[_0x287eac(0x116)]();
-            break;
-          default:
-            hls[_0x287eac(0x119)]();
-            break;
-        }
-    });
+    }
+  });
+  //Monitor the HTML dom element to know when to handle errors
   function track_change() {
-    var _0x2c830c = _0x48dc48;
-    element2Monitor[_0x2c830c(0x10f)] != element2MonitorStartValue &&
-      ((element2MonitorStartValue = element2Monitor[_0x2c830c(0x10f)]),
-      (somethingChanged = !![]),
-      onlineMonitor());
+    if (element2Monitor.value != element2MonitorStartValue) {
+      element2MonitorStartValue = element2Monitor.value;
+      somethingChanged = true;
+      onlineMonitor();
+    }
   }
   setInterval(function () {
     track_change();
-  }, 0x64),
-    onlineMonitor();
-} else {
-  if (video["canPlayType"](_0x48dc48(0x121))) {
-    (hlsOrHtmlPlayer = ![]),
-      (video["src"] = videoSrc),
-      video[_0x48dc48(0x12a)](_0x48dc48(0xed), _0x48dc48(0xf3));
-    function reloadOnError() {
-      var _0xf6c8d9 = _0x48dc48;
-      errorCount == 0x0 &&
-        ((video["src"] = videoErrorSrc),
-        (video[_0xf6c8d9(0x100)] = !![]),
-        (video[_0xf6c8d9(0x132)] = !![]),
-        video["load"](),
-        video[_0xf6c8d9(0xf7)](),
-        errorCount == 0x1);
+  }, 100);
+  //Launch this monitor on load, in case the page is loaded before live endpoint is up
+  onlineMonitor();
+} else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+  hlsOrHtmlPlayer = false;
+  video.src = videoSrc;
+  video.setAttribute("onerror", "reloadOnError()");
+  // video.addEventListener("loadedmetadata", function () {
+  //   video.play();
+  // });
+
+  function reloadOnError() {
+    if (errorCount == 0) {
+      // Switch to the error video
+      video.src = videoErrorSrc;
+      video.muted = true;
+      video.loop = true;
+      video.load();
+      video.play();
+      errorCount == 1;
     }
   }
 }
+
+//Monitor the live endpoint and switch to it if it is available
 function onlineMonitor() {
-  var _0x1aeec9 = _0x48dc48;
-  if (hls[_0x1aeec9(0x115)] == videoErrorSrc) {
-    var _0x29d4a3 = new XMLHttpRequest();
-    _0x29d4a3[_0x1aeec9(0x122)](_0x1aeec9(0x103), videoSrc),
-      (_0x29d4a3[_0x1aeec9(0xf0)] = function () {
-        var _0xfedc2b = _0x1aeec9;
-        if (this["readyState"] == this[_0xfedc2b(0xef)]) {
-          if (this["status"] == 0x194 && hls[_0xfedc2b(0x115)] == videoErrorSrc)
-            console[_0xfedc2b(0xf2)](_0xfedc2b(0x11b), videoSrc);
-          else
-            this[_0xfedc2b(0x11a)] == 0xc8 &&
-              hls[_0xfedc2b(0x115)] == videoErrorSrc &&
-              (console[_0xfedc2b(0xf2)](_0xfedc2b(0x11f)),
-              (element2Monitor[_0xfedc2b(0x10f)] = "online"),
-              (somethingChanged = ![]),
-              (video["loop"] = ![]),
-              hls[_0xfedc2b(0xe8)](),
-              hls[_0xfedc2b(0x114)](videoSrc),
-              hls[_0xfedc2b(0x12e)](video),
-              video[_0xfedc2b(0xf7)]());
+  if (hls.url == videoErrorSrc) {
+    var http = new XMLHttpRequest();
+    http.open("HEAD", videoSrc);
+    http.onreadystatechange = function () {
+      if (this.readyState == this.DONE) {
+        if (this.status == 404 && hls.url == videoErrorSrc) {
+          //Live down and user watching error video
+          console.log("Send it: Live endpoint currently down", videoSrc);
+        } else if (this.status == 200 && hls.url == videoErrorSrc) {
+          console.log("Send it: Live endpoint is up, switching to it");
+          element2Monitor.value = "online";
+          somethingChanged = false;
+          video.loop = false;
+          hls.detachMedia();
+          // hls.startLoad((startPosition = 1));
+          hls.loadSource(videoSrc);
+          hls.attachMedia(video);
+          video.play();
         }
-      }),
-      _0x29d4a3["send"](),
-      setTimeout(onlineMonitor, 0x7d0);
+      }
+    };
+    http.send();
+    setTimeout(onlineMonitor, 2000);
   }
 }
-function _0x5c89(_0x2c7313, _0x12c59e) {
-  _0x2c7313 = _0x2c7313 - 0xe3;
-  var _0x13439a = _0x1343[_0x2c7313];
-  return _0x13439a;
-}
+//Monitor live video
 onlineMonitorHLSNative();
+//Monitor the live endpoint and switch to it if it is available
 function onlineMonitorHLSNative() {
-  var _0x2a3293 = _0x48dc48,
-    _0x4cc8c4 = new XMLHttpRequest();
-  _0x4cc8c4[_0x2a3293(0x122)]("HEAD", videoSrc),
-    (_0x4cc8c4[_0x2a3293(0xf0)] = function () {
-      var _0x1a9cab = _0x2a3293;
-      if (this[_0x1a9cab(0x10e)] == this["DONE"]) {
-        if (
-          this[_0x1a9cab(0x11a)] == 0x194 &&
-          video[_0x1a9cab(0xe4)] == videoSrc
-        )
-          console["log"](_0x1a9cab(0x11b), videoSrc),
-            (video[_0x1a9cab(0x132)] = !![]),
-            (video["src"] = videoErrorSrc),
-            video["load"](),
-            video[_0x1a9cab(0xf7)]();
-        else
-          this[_0x1a9cab(0x11a)] == 0xc8 &&
-            video[_0x1a9cab(0xe4)] == videoErrorSrc &&
-            (console[_0x1a9cab(0xf2)](_0x1a9cab(0x11f)),
-            (video[_0x1a9cab(0x132)] = ![]),
-            (video[_0x1a9cab(0xe4)] = videoSrc),
-            video[_0x1a9cab(0xe5)](),
-            video["play"]());
+  // if (video.src == videoErrorSrc) {
+  var http = new XMLHttpRequest();
+  http.open("HEAD", videoSrc);
+  http.onreadystatechange = function () {
+    if (this.readyState == this.DONE) {
+      if (this.status == 404 && video.src == videoSrc) {
+        //Live down and user watching error video
+        console.log("Send it: Live endpoint currently down", videoSrc);
+        video.loop = true;
+        video.src = videoErrorSrc;
+        video.load();
+        video.play();
+      } else if (this.status == 200 && video.src == videoErrorSrc) {
+        console.log("Send it: Live endpoint is up, switching to it");
+        video.loop = false;
+        video.src = videoSrc;
+        video.load();
+        video.play();
       }
-    }),
-    _0x4cc8c4["send"](),
-    setTimeout(onlineMonitorHLSNative, 0x1f40);
+    }
+  };
+  http.send();
+  setTimeout(onlineMonitorHLSNative, 8000);
+  // }
 }
-typeof hls === _0x48dc48(0x118) &&
-  (document[_0x48dc48(0x12b)]("quality")["style"][_0x48dc48(0x12c)] =
-    _0x48dc48(0xf6));
-let timeout = null;
-const videoControlsDiv = document["getElementById"](_0x48dc48(0xf8));
-document[_0x48dc48(0xe7)](_0x48dc48(0x12d), (_0x506793) => {
-  var _0x4c163c = _0x48dc48;
-  (shouldHide = ![]),
-    clearTimeout(timeout),
-    videoControlsDiv[_0x4c163c(0xe3)][_0x4c163c(0x113)](_0x4c163c(0x127)) &&
-      videoControlsDiv[_0x4c163c(0xe3)]["remove"](_0x4c163c(0x127)),
-    (timeout = setTimeout(function () {
-      var _0x3b6269 = _0x4c163c;
-      console["log"](_0x3b6269(0x105)),
-        (shouldHide = !![]),
-        videoControlsDiv[_0x3b6269(0xe3)][_0x3b6269(0x12f)]("hidden-controls");
-    }, 0x7d0));
+
+if (typeof hls === "undefined") {
+  document.getElementById("quality").style.display = "none";
+}
+
+
+// Show / Hide the controls
+let timeout = null
+const videoControlsDiv = document.getElementById('video-controls')
+document.addEventListener('mousemove', e => {
+  shouldHide = false
+  clearTimeout(timeout);
+  if(videoControlsDiv.classList.contains('hidden-controls')){
+    videoControlsDiv.classList.remove('hidden-controls')
+  }
+    timeout = setTimeout(function() {
+        console.log('Mouse idle for 3 sec');
+        shouldHide = true
+        videoControlsDiv.classList.add('hidden-controls')
+    }, 2000);
 });
