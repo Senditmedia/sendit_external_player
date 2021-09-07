@@ -26,10 +26,10 @@ video {
   );
 }
 
-/* .video-controls.hide {
+.video-controls.hide {
   opacity: 0;
   pointer-events: none;
-} */
+}
 
 .video-progress {
   position: relative;

@@ -1,267 +1,282 @@
-const _0x312e = [
-  "click",
-  "timeupdate",
-  "currentTime",
-  "exitPictureInPicture",
-  "quality_2",
-  "dataset",
-  "forEach",
-  "minutes",
-  "toISOString",
-  "selected",
-  "pictureInPictureEnabled",
-  "time-elapsed",
-  "use",
-  "video-controls",
-  "data-seek",
-  "duration",
-  ".volume-button\x20use",
-  "style",
-  "textContent",
-  "remove",
-  "senditVideo",
-  "requestPictureInPicture",
-  "progress-bar",
-  "video-container",
-  "requestFullscreen",
-  "seconds",
-  "scale(1.3)",
-  "pictureInPictureElement",
-  "quality_0",
-  "pause",
-  "value",
-  "setAttribute",
-  "quality_-1",
-  "volume",
-  "fullscreenchange",
-  "seek",
-  "substr",
-  "paused",
-  "pageX",
-  "volumechange",
-  "addEventListener",
-  "use[href=\x22#volume-low\x22]",
-  "add",
-  "hide",
-  "muted",
-  "getElementById",
-  "seek-tooltip",
-  "DOMContentLoaded",
-  ".playback-icons\x20use",
-  "use[href=\x22#volume-high\x22]",
-  "mouseleave",
-  "exitFullscreen",
-  "max",
-  "keyup",
-  "input",
-  "volume-button",
-  "controls",
-  "querySelectorAll",
-  "offsetX",
-  "toggle",
-  "use[href=\x22#volume-mute\x22]",
-  "left",
-  "fullscreen-button",
-  "classList",
-  "round",
-  "target",
-  "getAttribute",
-  "hidden",
-  "error",
-  "playback-animation",
-  "disabled",
-  "clientWidth",
-  "play",
-  "querySelector",
-  "animate",
-  "ended",
-  "canPlayType",
-  "quality_1",
-  "mouseenter",
-];
-(function (_0x35d63f, _0x312e79) {
-  const _0x421663 = function (_0x2b10dc) {
-    while (--_0x2b10dc) {
-      _0x35d63f["push"](_0x35d63f["shift"]());
-    }
-  };
-  _0x421663(++_0x312e79);
-})(_0x312e, 0x146);
-const _0x4216 = function (_0x35d63f, _0x312e79) {
-  _0x35d63f = _0x35d63f - 0x0;
-  let _0x421663 = _0x312e[_0x35d63f];
-  return _0x421663;
-};
-const video = document["getElementById"](_0x4216("0xa")),
-  videoControls = document[_0x4216("0x23")](_0x4216("0x3")),
-  playButton = document[_0x4216("0x23")](_0x4216("0x3e")),
-  playbackIcons = document[_0x4216("0x2f")](_0x4216("0x26")),
-  timeElapsed = document["getElementById"](_0x4216("0x1")),
-  duration = document["getElementById"](_0x4216("0x5")),
-  progressBar = document[_0x4216("0x23")](_0x4216("0xc")),
-  seek = document["getElementById"](_0x4216("0x19")),
-  seekTooltip = document[_0x4216("0x23")](_0x4216("0x24")),
-  volumeButton = document["getElementById"](_0x4216("0x2d")),
-  volumeIcons = document["querySelectorAll"](_0x4216("0x6")),
-  volumeMute = document[_0x4216("0x3f")](_0x4216("0x32")),
-  volumeLow = document["querySelector"](_0x4216("0x1f")),
-  volumeHigh = document["querySelector"](_0x4216("0x27")),
-  volume = document[_0x4216("0x23")](_0x4216("0x17")),
-  playbackAnimation = document[_0x4216("0x23")](_0x4216("0x3b")),
-  fullscreenButton = document[_0x4216("0x23")](_0x4216("0x34")),
-  videoContainer = document[_0x4216("0x23")](_0x4216("0xd")),
-  fullscreenIcons = fullscreenButton[_0x4216("0x2f")](_0x4216("0x2")),
-  pipButton = document[_0x4216("0x23")]("pip-button");
+// Select elements here
+const video = document.getElementById("senditVideo");
+const videoControls = document.getElementById("video-controls");
+const playButton = document.getElementById("play");
+const playbackIcons = document.querySelectorAll(".playback-icons use");
+const timeElapsed = document.getElementById("time-elapsed");
+const duration = document.getElementById("duration");
+const progressBar = document.getElementById("progress-bar");
+const seek = document.getElementById("seek");
+const seekTooltip = document.getElementById("seek-tooltip");
+const volumeButton = document.getElementById("volume-button");
+const volumeIcons = document.querySelectorAll(".volume-button use");
+const volumeMute = document.querySelector('use[href="#volume-mute"]');
+const volumeLow = document.querySelector('use[href="#volume-low"]');
+const volumeHigh = document.querySelector('use[href="#volume-high"]');
+const volume = document.getElementById("volume");
+const playbackAnimation = document.getElementById("playback-animation");
+const fullscreenButton = document.getElementById("fullscreen-button");
+const videoContainer = document.getElementById("video-container");
+const fullscreenIcons = fullscreenButton.querySelectorAll("use");
+const pipButton = document.getElementById("pip-button");
+
 function setQuality() {
   if (typeof hls === "undefined") {
   } else {
-    var _0x18ee1d;
-    if (document["getElementById"](_0x4216("0x16"))["selected"])
-      _0x18ee1d = document[_0x4216("0x23")]("quality_-1")[_0x4216("0x14")];
-    else {
-      if (document[_0x4216("0x23")](_0x4216("0x12"))[_0x4216("0x4e")])
-        _0x18ee1d = document[_0x4216("0x23")](_0x4216("0x12"))["value"];
-      else {
-        if (document["getElementById"](_0x4216("0x43"))[_0x4216("0x4e")])
-          _0x18ee1d = document[_0x4216("0x23")](_0x4216("0x43"))[
-            _0x4216("0x14")
-          ];
-        else
-          document[_0x4216("0x23")](_0x4216("0x49"))[_0x4216("0x4e")] &&
-            (_0x18ee1d = document["getElementById"](_0x4216("0x49"))[
-              _0x4216("0x14")
-            ]);
+    var qualitySelected;
+    if (document.getElementById("quality_-1").selected) {
+      qualitySelected = document.getElementById("quality_-1").value;
+    } else if (document.getElementById("quality_0").selected) {
+      qualitySelected = document.getElementById("quality_0").value;
+    } else if (document.getElementById("quality_1").selected) {
+      qualitySelected = document.getElementById("quality_1").value;
+    } else if (document.getElementById("quality_2").selected) {
+      qualitySelected = document.getElementById("quality_2").value;
+    }
+    hls.nextLevel = Number(qualitySelected);
+  }
+}
+
+const videoWorks = !!document.createElement("video").canPlayType;
+if (videoWorks) {
+  video.controls = false;
+  videoControls.classList.remove("hidden");
+}
+
+// Add functions here
+
+// togglePlay toggles the playback state of the video.
+// If the video playback is paused or ended, the video is played
+// otherwise, the video is paused
+function togglePlay() {
+  if (video.paused || video.ended) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+
+// updatePlayButton updates the playback icon and tooltip
+// depending on the playback state
+function updatePlayButton() {
+  playbackIcons.forEach((icon) => {
+    if(video.paused){
+      if(icon.href.baseVal === '#pause'){
+        icon.classList.add('hidden')
+      } else {
+        icon.classList.remove('hidden')
+      }
+    } else {
+      if(icon.href.baseVal === '#pause'){
+        icon.classList.remove('hidden')
+      } else {
+        icon.classList.add('hidden')
       }
     }
-    hls["nextLevel"] = Number(_0x18ee1d);
-  }
-}
-const videoWorks = !!document["createElement"]("video")[_0x4216("0x42")];
-videoWorks &&
-  ((video[_0x4216("0x2e")] = ![]),
-  videoControls[_0x4216("0x35")][_0x4216("0x9")](_0x4216("0x39")));
-function togglePlay() {
-  video[_0x4216("0x1b")] || video[_0x4216("0x41")]
-    ? video["play"]()
-    : video[_0x4216("0x13")]();
-}
-function updatePlayButton() {
-  playbackIcons[_0x4216("0x4b")]((_0x47f54e) =>
-    _0x47f54e["classList"][_0x4216("0x31")](_0x4216("0x39"))
-  );
-  if (video[_0x4216("0x1b")]) {
+    // icon.classList.toggle("hidden")
+  });
+  if (video.paused) {
+    // playButton.setAttribute("data-title", "Play (k)");
   } else {
+    // playButton.setAttribute("data-title", "Pause (k)");
   }
 }
-function formatTime(_0x5289e9) {
-  const _0x3a3f58 = new Date(_0x5289e9 * 0x3e8)
-    [_0x4216("0x4d")]()
-    [_0x4216("0x1a")](0xb, 0x8);
+
+// formatTime takes a time length in seconds and returns the time in
+// minutes and seconds
+function formatTime(timeInSeconds) {
+  const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
+
   return {
-    minutes: _0x3a3f58[_0x4216("0x1a")](0x3, 0x2),
-    seconds: _0x3a3f58[_0x4216("0x1a")](0x6, 0x2),
+    minutes: result.substr(3, 2),
+    seconds: result.substr(6, 2),
   };
 }
+
+// initializeVideo sets the video duration, and maximum value of the
+// progressBar
 function initializeVideo() {
-  const _0x1bccce = Math[_0x4216("0x36")](video[_0x4216("0x5")]);
+  const videoDuration = Math.round(video.duration);
+  //   seek.setAttribute("max", videoDuration);
+  //   progressBar.setAttribute("max", videoDuration);
+  //   const time = formatTime(videoDuration);
+  //   duration.innerText = `${time.minutes}:${time.seconds}`;
+  //   duration.setAttribute("datetime", `${time.minutes}m ${time.seconds}s`);
 }
-function updateTimeElapsed() {}
-function updateProgress() {}
-function updateSeekTooltip(_0xc7de95) {
-  const _0x2a499b = Math[_0x4216("0x36")](
-    (_0xc7de95[_0x4216("0x30")] / _0xc7de95[_0x4216("0x37")][_0x4216("0x3d")]) *
-      parseInt(
-        _0xc7de95[_0x4216("0x37")][_0x4216("0x38")](_0x4216("0x2a")),
-        0xa
-      )
+
+// updateTimeElapsed indicates how far through the video
+// the current playback is by updating the timeElapsed element
+function updateTimeElapsed() {
+  //   const time = formatTime(Math.round(video.currentTime));
+  //   timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
+  //   timeElapsed.setAttribute("datetime", `${time.minutes}m ${time.seconds}s`);
+}
+
+// updateProgress indicates how far through the video
+// the current playback is by updating the progress bar
+function updateProgress() {
+  //   seek.value = Math.floor(video.currentTime);
+  //   progressBar.value = Math.floor(video.currentTime);
+}
+
+// updateSeekTooltip uses the position of the mouse on the progress bar to
+// roughly work out what point in the video the user will skip to if
+// the progress bar is clicked at that point
+function updateSeekTooltip(event) {
+  const skipTo = Math.round(
+    (event.offsetX / event.target.clientWidth) *
+      parseInt(event.target.getAttribute("max"), 10)
   );
-  seek[_0x4216("0x15")](_0x4216("0x4"), _0x2a499b);
-  const _0x49547c = formatTime(_0x2a499b);
-  seekTooltip[_0x4216("0x8")] =
-    _0x49547c[_0x4216("0x4c")] + ":" + _0x49547c[_0x4216("0xf")];
-  const _0x30bcd6 = video["getBoundingClientRect"]();
-  seekTooltip[_0x4216("0x7")][_0x4216("0x33")] =
-    _0xc7de95[_0x4216("0x1c")] - _0x30bcd6[_0x4216("0x33")] + "px";
+  seek.setAttribute("data-seek", skipTo);
+  const t = formatTime(skipTo);
+  seekTooltip.textContent = `${t.minutes}:${t.seconds}`;
+  const rect = video.getBoundingClientRect();
+  seekTooltip.style.left = `${event.pageX - rect.left}px`;
 }
-function skipAhead(_0x5a480b) {
-  const _0x4854fa = _0x5a480b["target"][_0x4216("0x4a")][_0x4216("0x19")]
-    ? _0x5a480b[_0x4216("0x37")][_0x4216("0x4a")]["seek"]
-    : _0x5a480b[_0x4216("0x37")][_0x4216("0x14")];
-  (video[_0x4216("0x47")] = _0x4854fa),
-    (progressBar[_0x4216("0x14")] = _0x4854fa),
-    (seek[_0x4216("0x14")] = _0x4854fa);
+
+// skipAhead jumps to a different point in the video when the progress bar
+// is clicked
+function skipAhead(event) {
+  const skipTo = event.target.dataset.seek
+    ? event.target.dataset.seek
+    : event.target.value;
+  video.currentTime = skipTo;
+  progressBar.value = skipTo;
+  seek.value = skipTo;
 }
+
+// updateVolume updates the video's volume
+// and disables the muted state if active
 function updateVolume() {
-  video["muted"] && (video["muted"] = ![]),
-    (video[_0x4216("0x17")] = volume[_0x4216("0x14")]);
+  if (video.muted) {
+    video.muted = false;
+  }
+
+  video.volume = volume.value;
 }
+
+// updateVolumeIcon updates the volume icon so that it correctly reflects
+// the volume of the video
 function updateVolumeIcon() {
-  volumeIcons[_0x4216("0x4b")]((_0x875c74) => {
-    _0x875c74["classList"][_0x4216("0x20")](_0x4216("0x39"));
+  volumeIcons.forEach((icon) => {
+    icon.classList.add("hidden");
   });
-  if (video["muted"] || video[_0x4216("0x17")] === 0x0)
-    volumeMute[_0x4216("0x35")][_0x4216("0x9")](_0x4216("0x39"));
-  else
-    video[_0x4216("0x17")] > 0x0 && video[_0x4216("0x17")] <= 0.5
-      ? volumeLow[_0x4216("0x35")][_0x4216("0x9")](_0x4216("0x39"))
-      : volumeHigh[_0x4216("0x35")][_0x4216("0x9")](_0x4216("0x39"));
-}
-function toggleMute() {
-  (video[_0x4216("0x22")] = !video[_0x4216("0x22")]),
-    video[_0x4216("0x22")]
-      ? (volume["value"] = 0x0)
-      : (volume[_0x4216("0x14")] = volume[_0x4216("0x4a")][_0x4216("0x17")]);
-}
-function animatePlayback() {
-  playbackAnimation[_0x4216("0x40")](
-    [
-      { opacity: 0x0, transform: "scale(1)" },
-      { opacity: 0x0, transform: _0x4216("0x10") },
-    ],
-    { duration: 0x1f4 }
-  );
-}
-function toggleFullScreen() {
-  document["fullscreenElement"]
-    ? document[_0x4216("0x29")]()
-    : videoContainer[_0x4216("0xe")]();
-}
-function updateFullscreenButton() {
-  fullscreenIcons[_0x4216("0x4b")]((_0xb88ab4) =>
-    _0xb88ab4[_0x4216("0x35")][_0x4216("0x31")](_0x4216("0x39"))
-  );
-  if (document["fullscreenElement"]) {
+
+  //   volumeButton.setAttribute("data-title", "Mute (m)");
+
+  if (video.muted || video.volume === 0) {
+    volumeMute.classList.remove("hidden");
+    // volumeButton.setAttribute("data-title", "Unmute (m)");
+  } else if (video.volume > 0 && video.volume <= 0.5) {
+    volumeLow.classList.remove("hidden");
   } else {
+    volumeHigh.classList.remove("hidden");
   }
 }
+
+// toggleMute mutes or unmutes the video when executed
+// When the video is unmuted, the volume is returned to the value
+// it was set to before the video was muted
+function toggleMute() {
+  video.muted = !video.muted;
+
+  if (video.muted) {
+    // volume.setAttribute("data-volume", volume.value);
+    volume.value = 0;
+  } else {
+    volume.value = volume.dataset.volume;
+  }
+}
+
+// animatePlayback displays an animation when
+// the video is played or paused
+function animatePlayback() {
+  playbackAnimation.animate(
+    [
+      {
+        opacity: 0,
+        transform: "scale(1)",
+      },
+      {
+        opacity: 0,
+        transform: "scale(1.3)",
+      },
+    ],
+    {
+      duration: 500,
+    }
+  );
+}
+
+// toggleFullScreen toggles the full screen state of the video
+// If the browser is currently in fullscreen mode,
+// then it must be exited and vice versa.
+function toggleFullScreen() {
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    videoContainer.requestFullscreen();
+  }
+}
+
+// updateFullscreenButton changes the icon of the full screen button
+// and tooltip to reflect the current full screen state of the video
+function updateFullscreenButton() {
+  fullscreenIcons.forEach((icon) => icon.classList.toggle("hidden"));
+
+  if (document.fullscreenElement) {
+    // fullscreenButton.setAttribute("data-title", "Exit full screen (f)");
+  } else {
+    // fullscreenButton.setAttribute("data-title", "Full screen (f)");
+  }
+}
+
+// togglePip toggles Picture-in-Picture mode on the video
 async function togglePip() {
   try {
-    video !== document[_0x4216("0x11")]
-      ? ((pipButton[_0x4216("0x3c")] = !![]), await video[_0x4216("0xb")]())
-      : await document[_0x4216("0x48")]();
-  } catch (_0x4ff31b) {
-    console[_0x4216("0x3a")](_0x4ff31b);
+    if (video !== document.pictureInPictureElement) {
+      pipButton.disabled = true;
+      await video.requestPictureInPicture();
+    } else {
+      await document.exitPictureInPicture();
+    }
+  } catch (error) {
+    console.error(error);
   } finally {
-    pipButton[_0x4216("0x3c")] = ![];
+    pipButton.disabled = false;
   }
 }
+
+// hideControls hides the video controls when not in use
+// if the video is paused, the controls must remain visible
 function hideControls() {
-  if (video["paused"]) return;
-  videoControls["classList"][_0x4216("0x20")](_0x4216("0x21"));
+  if (video.paused) {
+    return;
+  }
+
+  videoControls.classList.add("hide");
 }
+
+// showControls displays the video controls
 function showControls() {
-  videoControls[_0x4216("0x35")]["remove"](_0x4216("0x21"));
+  videoControls.classList.remove("hide");
 }
-function keyboardShortcuts(_0x28a5eb) {
-  const { key: _0x53d5a7 } = _0x28a5eb;
-  switch (_0x53d5a7) {
+
+// keyboardShortcuts executes the relevant functions for
+// each supported shortcut key
+function keyboardShortcuts(event) {
+  const { key } = event;
+  switch (key) {
     case "k":
-      togglePlay(), animatePlayback();
-      video[_0x4216("0x1b")]
-        ? showControls()
-        : setTimeout(() => {
-            hideControls();
-          }, 0x7d0);
+      togglePlay();
+      animatePlayback();
+      if (video.paused) {
+        showControls();
+      } else {
+        setTimeout(() => {
+          hideControls();
+        }, 2000);
+      }
       break;
     case "m":
       toggleMute();
@@ -274,25 +289,32 @@ function keyboardShortcuts(_0x28a5eb) {
       break;
   }
 }
-playButton[_0x4216("0x1e")](_0x4216("0x45"), togglePlay),
-  video["addEventListener"](_0x4216("0x3e"), updatePlayButton),
-  video[_0x4216("0x1e")](_0x4216("0x13"), updatePlayButton),
-  video[_0x4216("0x1e")]("loadedmetadata", initializeVideo),
-  video[_0x4216("0x1e")]("timeupdate", updateTimeElapsed),
-  video[_0x4216("0x1e")](_0x4216("0x46"), updateProgress),
-  video[_0x4216("0x1e")](_0x4216("0x1d"), updateVolumeIcon),
-  video[_0x4216("0x1e")](_0x4216("0x45"), togglePlay),
-  video["addEventListener"](_0x4216("0x44"), showControls),
-  video[_0x4216("0x1e")]("mouseleave", hideControls),
-  videoControls[_0x4216("0x1e")](_0x4216("0x44"), showControls),
-  videoControls[_0x4216("0x1e")](_0x4216("0x28"), hideControls),
-  volume[_0x4216("0x1e")](_0x4216("0x2c"), updateVolume),
-  volumeButton[_0x4216("0x1e")](_0x4216("0x45"), toggleMute),
-  fullscreenButton[_0x4216("0x1e")](_0x4216("0x45"), toggleFullScreen),
-  videoContainer[_0x4216("0x1e")](_0x4216("0x18"), updateFullscreenButton),
-  pipButton["addEventListener"](_0x4216("0x45"), togglePip),
-  document[_0x4216("0x1e")](_0x4216("0x25"), () => {
-    !(_0x4216("0x0") in document) &&
-      pipButton[_0x4216("0x35")][_0x4216("0x20")](_0x4216("0x39"));
-  }),
-  document[_0x4216("0x1e")](_0x4216("0x2b"), keyboardShortcuts);
+
+// Add eventlisteners here
+playButton.addEventListener("click", togglePlay);
+video.addEventListener("play", updatePlayButton);
+video.addEventListener("pause", updatePlayButton);
+video.addEventListener("loadedmetadata", initializeVideo);
+video.addEventListener("timeupdate", updateTimeElapsed);
+video.addEventListener("timeupdate", updateProgress);
+video.addEventListener("volumechange", updateVolumeIcon);
+video.addEventListener("click", togglePlay);
+// video.addEventListener("click", animatePlayback);
+video.addEventListener("mouseenter", showControls);
+video.addEventListener("mouseleave", hideControls);
+videoControls.addEventListener("mouseenter", showControls);
+videoControls.addEventListener("mouseleave", hideControls);
+// seek.addEventListener("mousemove", updateSeekTooltip);
+// seek.addEventListener("input", skipAhead);
+volume.addEventListener("input", updateVolume);
+volumeButton.addEventListener("click", toggleMute);
+fullscreenButton.addEventListener("click", toggleFullScreen);
+videoContainer.addEventListener("fullscreenchange", updateFullscreenButton);
+pipButton.addEventListener("click", togglePip);
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!("pictureInPictureEnabled" in document)) {
+    pipButton.classList.add("hidden");
+  }
+});
+document.addEventListener("keyup", keyboardShortcuts);
