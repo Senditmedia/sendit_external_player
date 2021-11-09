@@ -1,3 +1,5 @@
+# OLD PLAYER, GENERALLY NOT USED. PLEASE USE SENDIT_STANDALONE_PLAER REPO
+
 1. In https://github.com/Senditmedia/sendit branch called senditcdn, copy the contents
 2. Change for example the following values:
  - Update all links to jsdelivr, etc.
